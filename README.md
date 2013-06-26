@@ -20,6 +20,7 @@ I have tested it with the following versions of Pandoc:
 Note that it doesn't work with these versions of Pandoc:
 
 * 1.10.1 (the testsuite shows some stray "unknown" text in the converted headings) 
+* 1.11.1 (same issue)
 
 Running the TestSuite
 =====================
