@@ -30,3 +30,11 @@ To test the code, run:
 
 This simply converts the sample file ''markdown_to_dokuwiki_test_input.md'' to Dokuwiki format, 
 and tests that the output matches the contents of ''markdown_to_dokuwiki_test_expected.txt''
+
+Successful output looks something like this:
+
+    .
+    ----------------------------------------------------------------------
+    Ran 1 test in 0.114s
+    
+    OK
