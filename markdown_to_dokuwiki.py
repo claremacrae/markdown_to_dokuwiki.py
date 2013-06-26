@@ -52,6 +52,8 @@ def process_container( container ):
             return unicode('//') + process_container( value ) + unicode('//')
         elif key == 'Code':
             return unicode("''") + value[1] + unicode("''")
+        elif key == 'Image':
+            return unicode("{{:") + value[1][0] + unicode("}}")
         elif key == "Link":
             url = value[1][0]
             return unicode('[[') + url + unicode('|') + process_container( value[0] ) + unicode(']]')
@@ -65,6 +67,8 @@ def process_container( container ):
             # There is no representation of blockquotes in DokuWiki - we'll just
             # have to spit out the unmodified text
             return '\n' + process_container( value ) + '\n'
+        elif key == "CodeBlock":
+            return '<code>\n' + value[1] + '\n</code>'
 
         #elif key == 'Code':
         #    return unicode("''") + process_container( value ) + unicode("''")

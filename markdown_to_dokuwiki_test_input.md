@@ -22,6 +22,8 @@ Bigger and **bolder** and *italic*
 
 This has ``code`` inline.
 
+![](OneNoteTags.png)
+
 ----------
 
 This is a [hyperlink](http://www.google.co.uk/). So is http://www.google.co.uk/
@@ -46,3 +48,8 @@ This is a [hyperlink](http://www.google.co.uk/). So is http://www.google.co.uk/
 > This is a block quote.
 
 > # Heading in a block quote #
+
+Some code:
+
+	/local/[user]/builds/BRANCH_NAME/linux...release/cppbuilds_shared
+	/local/[user]/builds/BRANCH_NAME/linux...release/utilitieslib
