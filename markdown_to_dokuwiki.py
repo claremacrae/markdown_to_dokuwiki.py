@@ -50,6 +50,8 @@ def process_container( container ):
             return unicode('**') + process_container( value ) + unicode('**')
         elif key == 'Emph':
             return unicode('//') + process_container( value ) + unicode('//')
+        elif key == 'Code':
+            return unicode("''") + value[1] + unicode("''")
         elif key == "Link":
             url = value[1][0]
             return unicode('[[') + url + unicode('|') + process_container( value[0] ) + unicode(']]')
@@ -120,4 +122,3 @@ if __name__ == "__main__":
         return_code = 0
         
     sys.exit( return_code )
-
