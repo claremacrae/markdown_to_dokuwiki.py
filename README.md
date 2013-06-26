@@ -15,6 +15,7 @@ Note that [pandoc](https://github.com/jgm/pandoc) must be in the your path, for 
 I have tested it with the following versions of Pandoc:
 
 * 1.9.1.2
+* 1.9.3
 
 Note that it doesn't work with these versions of Pandoc:
 
