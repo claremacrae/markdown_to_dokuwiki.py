@@ -117,7 +117,7 @@ def convert_file( filename ):
     os.system( command )
 
     if not os.path.exists( tempfile ):
-        print "No json file created: cannot proceed"
+        print >> sys.stderr, "No json file created: cannot proceed"
         return 1
     
     input_file = open(tempfile, 'r' )
@@ -131,8 +131,11 @@ def convert_file( filename ):
     return 0
 
 def main( files ):
+    return_code = 0
     for filename in files:
-        convert_file( filename )
+        return_code =+ convert_file( filename )
+    
+    return return_code
 
 if __name__ == "__main__":
     files = sys.argv[1:]
