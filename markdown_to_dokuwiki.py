@@ -115,6 +115,10 @@ def convert_file( filename ):
     command = "pandoc --to=json \"%s\" --output=%s" % ( filename, tempfile )
     #print command
     os.system( command )
+
+    if not os.path.exists( tempfile ):
+        print "No json file created: cannot proceed"
+        return 1
     
     input_file = open(tempfile, 'r' )
     input_text = input_file.readline()
@@ -123,6 +127,8 @@ def convert_file( filename ):
     ## Parse the data
     data = json.loads( input_text )
     process_pandoc_jason( data )
+
+    return 0
 
 def main( files ):
     for filename in files:
@@ -135,7 +141,6 @@ if __name__ == "__main__":
         sys.stderr.write( "Supply one or more filenames to convert on the command line\n" )
         return_code = 1
     else:
-        main( files )
-        return_code = 0
+        return_code = main( files )
         
     sys.exit( return_code )
