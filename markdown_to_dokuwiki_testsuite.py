@@ -23,7 +23,11 @@ class ConversionsTest(unittest.TestCase):
         #      markdown_to_dokuwiki.convert_file()
         python_cmd = os.getenv( "CCDC_BUILD_PYTHON", "python" )
         command_line = python_cmd + " markdown_to_dokuwiki.py " + input_file_name + " > " + temp_file_name
-        os.system( command_line )
+        result = os.system( command_line )
+
+        if result != 0:
+            print "ERROR: conversion failed."
+            return
         
         if filecmp.cmp( temp_file_name, expected_file_name ) != 1:
             # TODO Fix use of PC-specific comparison program FC
