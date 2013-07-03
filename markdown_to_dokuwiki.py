@@ -43,9 +43,17 @@ def process_container( container ):
         if key == 'Str':
             return value
         elif key == 'Header':
+
+            # This works for pandoc 1.10.1 and newer
+            header_text_index = 2
+            if len(value) < 3:
+                # We're running an older pandoc, which only has two values for a heading:
+                header_text_index = 1
+
             level = value[0]
             marker = ( 7 - level ) * unicode( '=' )
-            return marker + unicode(' ') + process_container( value[2] ) + unicode(' ') + marker + unicode('\n\n')
+            return marker + unicode(' ') + process_container( value[header_text_index] ) + \
+                   unicode(' ') + marker + unicode('\n\n')
         elif key == 'Strong':
             return unicode('**') + process_container( value ) + unicode('**')
         elif key == 'Emph':

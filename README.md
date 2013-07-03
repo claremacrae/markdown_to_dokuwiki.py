@@ -16,11 +16,8 @@ I have tested it with the following versions of Pandoc:
 
 * 1.9.1.2
 * 1.9.3
-
-Note that it doesn't work with these versions of Pandoc:
-
-* 1.10.1 (the testsuite shows some stray "unknown" text in the converted headings) 
-* 1.11.1 (same issue)
+* 1.10.1
+* 1.11.1
 
 Running the TestSuite
 =====================
