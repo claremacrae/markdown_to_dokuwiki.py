@@ -45,7 +45,7 @@ def process_container( container ):
         elif key == 'Header':
             level = value[0]
             marker = ( 7 - level ) * unicode( '=' )
-            return marker + unicode(' ') + process_container( value[1] ) + unicode(' ') + marker + unicode('\n\n')
+            return marker + unicode(' ') + process_container( value[2] ) + unicode(' ') + marker + unicode('\n\n')
         elif key == 'Strong':
             return unicode('**') + process_container( value ) + unicode('**')
         elif key == 'Emph':
