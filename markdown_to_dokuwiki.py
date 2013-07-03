@@ -99,6 +99,11 @@ def process_pandoc_jason( data ):
 def convert_file( filename ):
     # Use pandoc to parse the input file, and write it out as json
     tempfile = "temp_script_output.json"
+
+    # Avoid accidentally picking up output of earlier runs, if error in this one:
+    if os.path.exists( tempfile ):
+        os.remove( tempfile )
+
     command = "pandoc --to=json \"%s\" --output=%s" % ( filename, tempfile )
     #print command
     os.system( command )

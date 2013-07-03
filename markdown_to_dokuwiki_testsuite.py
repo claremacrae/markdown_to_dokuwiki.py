@@ -16,6 +16,9 @@ class ConversionsTest(unittest.TestCase):
         expected_file_name = "markdown_to_dokuwiki_test_expected.txt"
         temp_file_name = "markdown_to_dokuwiki_test_output.txt"
 
+        if os.path.exists( temp_file_name ):
+            os.remove( temp_file_name )
+
         # TODO Convert the following os.system() to a direct call of
         #      markdown_to_dokuwiki.convert_file()
         python_cmd = os.getenv( "CCDC_BUILD_PYTHON", "python" )
