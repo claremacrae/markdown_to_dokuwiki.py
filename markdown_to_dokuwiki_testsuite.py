@@ -26,7 +26,7 @@ class ConversionsTest(unittest.TestCase):
         result = os.system( command_line )
 
         if result != 0:
-            print "ERROR: conversion failed."
+            self.fail( "ERROR: conversion failed." )
             return
         
         if filecmp.cmp( temp_file_name, expected_file_name ) != 1:
