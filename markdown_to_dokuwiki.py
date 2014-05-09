@@ -35,9 +35,14 @@ def process_list( list_marker, value ):
 
 def process_container( container ):
     if isinstance( container, dict ):
-        assert( len(container) == 1 )
-        key = container.keys()[ 0 ]
-        value = container.values()[ 0 ]
+        assert( len(container) in [1, 2] )
+        if len(container) == 1:
+            key = container.keys()[ 0 ]
+            value = container.values()[ 0 ]
+        elif len(container) == 2:
+            # pandoc >= 1.12.1
+            key = container['t']
+            value = container['c']
         if key == 'Para':
             return process_container( value ) + '\n\n'
         if key == 'Str':
@@ -71,6 +76,10 @@ def process_container( container ):
             return process_list( unicode( '- ' ), value[1])
         elif key == "Plain":
             return process_container( value )
+        elif key == "Space":
+            return process_container( " " )
+        elif key == "HorizontalRule":
+            return unicode( "----\n\n" )
         elif key == "BlockQuote":
             # There is no representation of blockquotes in DokuWiki - we'll just
             # have to spit out the unmodified text
@@ -89,11 +98,11 @@ def process_container( container ):
             result += process_container( value )
         return result
 
-    if isinstance( container, unicode ):
-        if container == unicode( "Space" ):
-            return unicode( " " )
-        elif container == unicode( "HorizontalRule" ):
+    if isinstance( container, unicode ) or isinstance( container, str ):
+        if container == unicode( "HorizontalRule" ):
             return unicode( "----\n\n" )
+        else:
+            return unicode( " " )
 
     return unicode("unknown") + str( container )
 

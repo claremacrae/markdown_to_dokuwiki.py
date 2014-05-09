@@ -18,6 +18,7 @@ I have tested it with the following versions of Pandoc:
 * 1.9.3
 * 1.10.1
 * 1.11.1
+* 1.12.4
 
 Running the TestSuite
 =====================
