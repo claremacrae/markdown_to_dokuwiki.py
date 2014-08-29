@@ -1,6 +1,12 @@
 markdown_to_dokuwiki.py
 =======================
 
+## Stop-Press - August 2014
+
+**Since [Pandoc 1.13](http://johnmacfarlane.net/pandoc/releases.html#pandoc-1.13-15-august-2014), Pandoc now contains my implementation of DokuWiki writing - and many more features are implementated there than in this script. So this script is now pretty-much redundant.**
+
+---
+
 Python script to convert a Markdown file to Dokuwiki
 
 This is based on my SuperUser answer to my question [How to convert Markdown files to Dokuwiki, on a PC](http://superuser.com/questions/402097/how-to-convert-markdown-files-to-dokuwiki-on-a-pc).
